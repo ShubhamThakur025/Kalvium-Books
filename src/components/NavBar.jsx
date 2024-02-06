@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom"
 import kalviLogo from '../assets/Kalvium-Logo-SVG.svg'
 import search from '../assets/search.png'
+import BookShelf from "./BookShelf"
 import { useState } from "react"
 
 function NavBar({ setSearch }) {
@@ -12,7 +13,7 @@ function NavBar({ setSearch }) {
 
     return (
         <div className="md:flex h-16 p-8 pt-10 mt-3.5s w-screen items-center justify-between">
-            <Link to="/Home">
+            <Link to="/BookShelf">
                 <div className="flex max-w-fit md:items-center m-auto md:m-0">
                     <img className="w-24 md:w-40 mr-2 " src={kalviLogo} alt="kalvium-logo" />
 
