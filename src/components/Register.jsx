@@ -9,8 +9,8 @@ function Register() {
   }
   return (
     <div>
-      <h1 className='text-center text-5xl font-bold uppercase mt-10'>REGISTER NOW!</h1>
-      <form onSubmit={handleSubmit(doSubmit)} className='flex flex-col items-center w-fit m-auto px-6 py-8 bg-slate-600 my-10 rounded-lg border'>
+      <h1 className='text-center md:text-5xl font-bold uppercase md:mt-10 mt-20 text-xl'>REGISTER NOW!</h1>
+      <form onSubmit={handleSubmit(doSubmit)} className='flex flex-col items-center w-3/4 md:w-fit m-auto px-6 py-8 bg-slate-600 my-10 rounded-lg border'>
         {submit ? <div className='text-center text-2xl text-green-400 font-bold uppercase mb-5 '>Registration Done!</div> : null}
         <input type="text"
           placeholder='Enter Name'
@@ -48,7 +48,7 @@ function Register() {
         </div>
 
         <button type='submit'
-          className='block m-3.5 mt-6 bg-red-600 md:w-[340px] md:h-10 h-2 rounded p-2 text-white md:font-base md:text-base text-[12px]'
+          className='block m-3.5 md:mt-6 bg-red-600 md:w-[340px] md:h-10 h-6 rounded md:p-2 p-0.5 text-white md:font-base md:text-base text-[12px]'
         >Register Now!
         </button>
       </form>
