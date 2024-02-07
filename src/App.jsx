@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import { Routes, Route, Link } from 'react-router-dom'
+import { Routes, Route} from 'react-router-dom'
 import NavBar from './components/NavBar'
 import Register from './components/Register'
 import Footer from './components/Footer'
@@ -13,7 +13,6 @@ function App() {
   useEffect(() => {
     axios.get("https://reactnd-books-api.udacity.com/books", { headers: { "Authorization": 'whatever-you-want' } })
       .then((response) => {
-        console.log(response.data.books)
         setBooks(response.data.books)
       })
       .catch((error) => alert("Could Not Found the Data. Try Again Later"))
@@ -23,8 +22,7 @@ function App() {
     <div>
       <NavBar setSearch={setSearch} />
       <Routes>
-        <Route path='/' />
-        <Route path='/BookShelf' element={<BookShelf books = {books} searchQuery={searchQuery}/>}/>
+        <Route path='/' element={<BookShelf books={books} searchQuery={searchQuery} />} />
         <Route path='/Register' element={<Register />} />
       </Routes>
       <Footer />

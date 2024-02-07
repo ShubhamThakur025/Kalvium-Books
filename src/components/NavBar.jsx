@@ -6,6 +6,7 @@ import { useState } from "react"
 
 function NavBar({ setSearch }) {
     const [state, setState] = useState("")
+    const [page, changePage] = useState(true)
 
     const handleChange = (event) => {
         setState(event.target.value)
@@ -13,7 +14,7 @@ function NavBar({ setSearch }) {
 
     return (
         <div className="md:flex h-16 p-8 pt-10 mt-3.5s w-screen items-center justify-between">
-            <Link to="/BookShelf">
+            <Link to="/" onClick={() => changePage(true)}>
                 <div className="flex max-w-fit md:items-center m-auto md:m-0">
                     <img className="w-24 md:w-40 mr-2 " src={kalviLogo} alt="kalvium-logo" />
 
@@ -22,12 +23,12 @@ function NavBar({ setSearch }) {
                 </div>
             </Link>
             <div className="flex items-center justify-between md:m-0 mt-6">
-                <div className="flex justify-center items-center md:mr-10">
+                {page ? <div className="flex justify-center items-center md:mr-10">
                     <input type="text" onChange={handleChange} value={state} className="bg-slate-200 md:w-[50vw] w-30vw md:h-10 h-2 rounded p-3.5 md:font-base md:text-base text-[12px]" placeholder="Search Books here" />
                     <img onClick={() => setSearch(state)} className="w-6 md:w-8 mr-2 m-2 cursor-pointer" src={search} alt="search-btn" />
-                </div>
+                </div> : null}
                 <div>
-                    <Link to="/Register">
+                    <Link to="/Register" onClick={() => changePage(false)}>
                         <button className="bg-red-500 text-white md:px-4 md:py-2 px-2 py-1 rounded md:text-base text-[12px]">Register</button>
                     </Link>
                 </div>
@@ -37,3 +38,8 @@ function NavBar({ setSearch }) {
 }
 
 export default NavBar
+
+// < div className = "flex justify-center items-center md:mr-10" >
+//                 <input type="text" onChange={handleChange} value={state} className="bg-slate-200 md:w-[50vw] w-30vw md:h-10 h-2 rounded p-3.5 md:font-base md:text-base text-[12px]" placeholder="Search Books here" />
+//                 <img onClick={() => setSearch(state)} className="w-6 md:w-8 mr-2 m-2 cursor-pointer" src={search} alt="search-btn" />
+//             </div >

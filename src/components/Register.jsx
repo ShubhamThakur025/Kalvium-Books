@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 function Register() {
-  const { register, handleSubmit, formState: { errors } } = useForm()
+  const { register, handleSubmit, watch, formState: { errors } } = useForm()
   const [submit, setSubmit] = useState(false)
   const doSubmit = (data) => {
     console.log(data)
@@ -14,30 +14,48 @@ function Register() {
         {submit ? <div className='text-center text-2xl text-green-400 font-bold uppercase mb-5 '>Registration Done!</div> : null}
         <input type="text"
           placeholder='Enter Name'
-          className='block bg-slate-100 md:w-[340px] border md:h-8 h-2 rounded p-3.5 md:font-base md:text-base text-[12px]'
-          {...register("name", { required: "Please enter the name" })}
+          className='input-form'
+          {...register("name", {
+            required: "Please enter the name",
+            minLength: { value: 3, message: "Name should be of minimum 3 characters." },
+            maxLength: { value: 30, message: "Name should be not more than 30 characters long" }
+          })}
         />
         <div className='text-red-500'>{errors.name?.message}</div>
         <input type="email"
           placeholder='Enter Your Mail'
-          className='block  bg-slate-100 mt-6 md:w-[340px] border md:h-8 h-2 rounded p-3.5 md:font-base md:text-base text-[12px]'
-          {...register("mail", { required: "Please enter the mail", pattern: { value: /^\S+@\S+$/i, message: "Invalid email"} })}
+          className='input-form mt-6'
+          {...register("mail", { required: "Please enter the mail", pattern: { value: /^\S+@\S+$/i, message: "Invalid email" } })}
 
         />
         <div className='text-red-500'>{errors.mail?.message}</div>
 
         <input type="password"
           placeholder='Enter the Password'
-          className='block  bg-slate-100 mt-6 md:w-[340px] border md:h-8 h-2 rounded p-3.5 md:font-base md:text-base text-[12px]'
-          {...register("pass", { required: "Please enter the password" })}
+          className='input-form mt-6'
+          {...register("pass", {
+            required: "Please enter the password",
+            minLength: {
+              value: 10,
+              message: "The password should be at least 10 characters long",
+            },
+            pattern: {
+              value: /^(?=.*[!@#$%^&*])/,
+              message: "Password should contain atleast one special character"
+            }
+          })}
 
         />
         <div className='text-red-500'>{errors.pass?.message}</div>
 
         <input type="password"
           placeholder='Re-Enter the Password'
-          className='block bg-slate-100 mt-6 md:w-[340px] border md:h-8 h-2 rounded p-3.5 md:font-base md:text-base text-[12px]'
-          {...register("passre", { required: "Please re-enter the password" })}
+          className='input-form mt-6'
+          {...register("passre", {
+            required: "Please re-enter the password",
+            validate: (value) => value === watch("pass") || "Passwords do not match"
+
+          })}
 
         />
         <div className='text-red-500'>{errors.passre?.message}</div>
