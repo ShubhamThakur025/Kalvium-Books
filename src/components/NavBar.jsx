@@ -5,9 +5,11 @@ import BookShelf from "./BookShelf"
 import { useState } from "react"
 
 function NavBar({ setSearch }) {
+    //to handle searchQuery and search bar visibility respectively
     const [state, setState] = useState("")
     const [page, changePage] = useState(true)
 
+    //to handle the changes made in the search Bar
     const handleChange = (event) => {
         setState(event.target.value)
     }
@@ -23,13 +25,21 @@ function NavBar({ setSearch }) {
                 </div>
             </Link>
             <div className="flex items-center justify-between md:m-0 mt-6">
-                {page ? <div className="flex justify-center items-center md:mr-10">
-                    <input type="text" onChange={handleChange} value={state} className="bg-slate-200 md:w-[50vw] w-30vw md:h-10 h-2 rounded p-3.5 md:font-base md:text-base text-[12px]" placeholder="Search Books here" />
-                    <img onClick={() => setSearch(state)} className="w-6 md:w-8 mr-2 m-2 cursor-pointer" src={search} alt="search-btn" />
-                </div> : null}
+                {/* Search Bar goes here: */}
+                {page ?
+                    <div className="flex justify-center items-center md:mr-10">
+                        <input type="text" onChange={handleChange} value={state}
+                            className="bg-slate-200 md:w-[50vw] w-30vw md:h-10 h-2 rounded p-3.5 md:font-base md:text-base text-[12px] shadow-sm"
+                            placeholder="Search Books here" />
+                        <img onClick={() => setSearch(state)} className="w-6 md:w-8 mr-2 m-2 cursor-pointer" src={search} alt="search-btn" />
+                    </div>
+                    : null}
                 <div>
                     <Link to="/Register" onClick={() => changePage(false)}>
-                        <button className="bg-red-500 text-white md:px-4 md:py-2 px-2 py-1 rounded md:text-base text-[12px]">Register</button>
+                        <button
+                            className="bg-red-500 text-white md:px-4 md:py-2 px-2 py-1 shadow-lg rounded md:text-base text-[12px]">
+                            Register
+                        </button>
                     </Link>
                 </div>
             </div>
@@ -38,8 +48,3 @@ function NavBar({ setSearch }) {
 }
 
 export default NavBar
-
-// < div className = "flex justify-center items-center md:mr-10" >
-//                 <input type="text" onChange={handleChange} value={state} className="bg-slate-200 md:w-[50vw] w-30vw md:h-10 h-2 rounded p-3.5 md:font-base md:text-base text-[12px]" placeholder="Search Books here" />
-//                 <img onClick={() => setSearch(state)} className="w-6 md:w-8 mr-2 m-2 cursor-pointer" src={search} alt="search-btn" />
-//             </div >

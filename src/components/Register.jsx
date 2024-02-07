@@ -1,8 +1,11 @@
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 function Register() {
+  //to handle register, submission respectively
   const { register, handleSubmit, watch, formState: { errors } } = useForm()
   const [submit, setSubmit] = useState(false)
+
+  //to handle the submission
   const doSubmit = (data) => {
     console.log(data)
     setSubmit(true)
