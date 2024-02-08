@@ -15,7 +15,7 @@ function NavBar({ setSearch }) {
     }
 
     return (
-        <div className="md:flex h-16 p-8 pt-10 mt-3.5s w-screen items-center justify-between">
+        <div className="md:flex h-16 p-8 pt-10 mt-3.5s  items-center justify-between">
             <Link to="/" onClick={() => changePage(true)}>
                 <div className="flex max-w-fit md:items-center m-auto md:m-0">
                     <img className="w-24 md:w-40 mr-2 " src={kalviLogo} alt="kalvium-logo" />

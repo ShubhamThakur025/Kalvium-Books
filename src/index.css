@@ -2,8 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer components{
-    .input-form{
+@layer components {
+    .input-form {
         @apply block bg-slate-100 md:w-[340px] border md:h-8 h-2 rounded p-3.5 md:text-base text-[12px]
     }
 }
+
+::-webkit-scrollbar{
+    width: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background-color: #4a5568;
+    border-radius: 50px;
+}
+::-webkit-scrollbar-thumb{
+    background-color: #718096;
+    border-radius: 50px;
+}
+
+::-webkit-scrollbar-track{
+    background-color: #edf2f7;
+    border-radius: 50px;
+}
+

@@ -13,6 +13,7 @@ function App() {
   useEffect(() => {
     axios.get("https://reactnd-books-api.udacity.com/books", { headers: { "Authorization": 'whatever-you-want' } })
       .then((response) => {
+        console.log(response.data.books)
         setBooks(response.data.books)
       })
       .catch((error) => alert("Could Not Found the Data. Try Again Later"))
