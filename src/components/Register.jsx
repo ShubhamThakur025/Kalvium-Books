@@ -9,6 +9,11 @@ function Register() {
   const doSubmit = (data) => {
     console.log(data)
     setSubmit(true)
+    alert("Redirecting back to the home page")
+    setTimeout(() => {
+      setSubmit(false)
+      location.href = '/'
+    },1000)
   }
   return (
     <div>
