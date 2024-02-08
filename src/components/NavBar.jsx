@@ -35,12 +35,12 @@ function NavBar({ setSearch }) {
                     </div>
                     : null}
                 <div>
-                    <Link to="/Register" onClick={() => changePage(false)}>
+                    {page ? <Link to="/Register" onClick={() => changePage(false)}>
                         <button
                             className="bg-red-500 text-white md:px-4 md:py-2 px-2 py-1 shadow-lg rounded md:text-base text-[12px]">
                             Register
                         </button>
-                    </Link>
+                    </Link> : null}
                 </div>
             </div>
         </div>
