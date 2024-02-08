@@ -6,7 +6,7 @@ function Bookdetail({ showPopUp, selectedBook }) {
             <div className="text-right" onClick={() => showPopUp(false)}>X</div>
             <div className='md:flex justify-center md:mt-4 '>
                 <div className='m-auto md:m-0 md:mr-10 w-fit'>
-                    <img className="md:w-[140px] w-[70px]" src={selectedBook.imageLinks.smallThumbnail} alt="" />
+                    <img className="w-[140px]" src={selectedBook.imageLinks.smallThumbnail} alt="" />
                     <div className='mt-2'>
                         {selectedBook.authors.map((author, index) => (
                             <div className="w-fit md:text-base text-xs font-bold" key={index}>{author}</div>
