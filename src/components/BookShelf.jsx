@@ -19,8 +19,9 @@ function BookShelf({ books, searchQuery }) {
             return book
         }
     })
+
     useEffect(() => {
-        if(filteredBooks.length < 1 && books.length > 0){
+        if (filteredBooks.length < 1 && books.length > 0) {
             foundResults(true)
         }
     }, [filteredBooks])
@@ -45,8 +46,12 @@ function BookShelf({ books, searchQuery }) {
                     )
                 })}
             </div>
-            {status ? <div className='text-4xl text-bold mb-[45vh] text-center'>No Search <span className='text-red-600'>Results</span></div>
-                : null}   </>
+
+            {
+                status ? <div className='text-4xl text-bold mb-[vh] text-center'>No Search <span className='text-red-600'>Results</span></div>
+                    : null
+            }
+        </>
     )
 }
 

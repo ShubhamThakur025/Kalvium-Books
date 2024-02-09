@@ -18,7 +18,7 @@ function NavBar({ setSearch }) {
         <div className="md:flex h-16 p-8 pt-10 mt-3.5s  items-center justify-between">
             <Link to="/" onClick={() => changePage(true)}>
                 <div className="flex max-w-fit md:items-center m-auto md:m-0">
-                    <img className="w-24 md:w-40 mr-2 " src={kalviLogo} alt="kalvium-logo" />
+                    <img className="w-24 lg:w-40 mr-2 " src={kalviLogo} alt="kalvium-logo" />
 
                     <p className="text-slate-400 md:mt-1.5 md:text-lg text-base font-semibold">Books</p>
 
@@ -29,7 +29,7 @@ function NavBar({ setSearch }) {
                 {page ?
                     <div className="flex justify-center items-center md:mr-10">
                         <input type="text" onChange={handleChange} value={state}
-                            className="bg-slate-200 md:w-[50vw] w-30vw md:h-10 h-2 rounded p-3.5 md:font-base md:text-base text-[12px] shadow-sm"
+                            className="bg-slate-200 lg:w-[50vw] w-30vw md:h-10 h-2 rounded p-3.5 md:font-base md:text-base text-[12px] shadow-sm"
                             placeholder="Search Books here" />
                         <img onClick={() => setSearch(state)} className="w-6 md:w-8 mr-2 m-2 cursor-pointer" src={search} alt="search-btn" />
                     </div>
