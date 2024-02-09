@@ -3,6 +3,7 @@ import star from '../assets/star.png'
 import Bookdetail from './Bookdetail'
 
 function BookShelf({ books, searchQuery }) {
+    //to show popup, track the selected Book and for search results
     const [popup, showPopUp] = useState(false)
     const [selectedBook, changeBook] = useState({})
     const [status, foundResults] = useState(false)
@@ -11,6 +12,8 @@ function BookShelf({ books, searchQuery }) {
         showPopUp(true)
         changeBook(book)
     }
+
+    //to filter the books
     let filteredBooks = books.filter((book) => {
         if (searchQuery === '') {
             return book
@@ -20,6 +23,7 @@ function BookShelf({ books, searchQuery }) {
         }
     })
 
+    //to show 'No results' in case of zero results
     useEffect(() => {
         if (filteredBooks.length < 1 && books.length > 0) {
             foundResults(true)
