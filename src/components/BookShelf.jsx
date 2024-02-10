@@ -28,6 +28,9 @@ function BookShelf({ books, searchQuery }) {
         if (filteredBooks.length < 1 && books.length > 0) {
             foundResults(true)
         }
+        else{
+            foundResults(false)
+        }
     }, [filteredBooks])
 
 
@@ -52,7 +55,7 @@ function BookShelf({ books, searchQuery }) {
             </div>
 
             {
-                status ? <div className='text-4xl text-bold mb-[vh] text-center'>No Search <span className='text-red-600'>Results</span></div>
+                status ? <div className='text-4xl text-bold mb-[45vh] text-center'>No Search <span className='text-red-600'>Results</span></div>
                     : null
             }
         </>
