@@ -4,11 +4,12 @@ function Register() {
   //to handle register, submission respectively
   const { register, handleSubmit, watch, formState: { errors } } = useForm()
   const [submit, setSubmit] = useState(false)
+  const [formData, setData] = useState({})
 
   //to handle the submission
   const doSubmit = (data) => {
-    console.log(data)
     setSubmit(true)
+    setData(formData)
     alert("Redirecting back to the home page")
     setTimeout(() => {
       setSubmit(false)
